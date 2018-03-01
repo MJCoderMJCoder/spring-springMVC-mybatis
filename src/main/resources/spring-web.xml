@@ -15,19 +15,30 @@
 	<!-- 简化配置： (1)自动注册DefaultAnootationHandlerMapping,AnotationMethodHandlerAdapter 
 		(2)提供一些列：数据绑定，数字和日期的format @NumberFormat, @DateTimeFormat, xml,json默认读写支持 -->
 	<!--避免IE执行AJAX时，返回JSON出现下载文件 -->
-	<!-- <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> 
-		<property name="supportedMediaTypes"> <list> <value>text/html;charset=UTF-8</value> 
-		</list> </property> </bean> -->
+	<bean id="mappingJackson2HttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+				<value>text/json;charset=UTF-8</value>
+				<value>application/json;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
 	<!--注解映射器（可省） -->
 	<!-- <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean> -->
 	<!--配置适配器（不需时可省）。启动SpringMVC的注解功能，完成请求和注解POJO的映射 -->
 	<!-- <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"> 
 		在业务方法的返回值和权限之间使用@ResponseBody注解表示返回值对象需要转成JSON文本 <property name="messageConverters"> 
 		<list> <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" 
-		/> <ref bean="mappingJacksonHttpMessageConverter" /> </list> </property> 
+		/> <ref bean="mappingJackson2HttpMessageConverter" /> </list> </property> 
 		</bean> -->
 	<!-- 注解驱动：以使得访问路径与方法的匹配可以通过注解配置 -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<ref bean="mappingJackson2HttpMessageConverter" />
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 
 	<!-- 2.静态资源默认servlet配置 (1)加入对静态资源的处理：html,css,js,image等可以访问 (2)允许使用"/"做整体映射 -->
 	<!-- 当在web.xml 中 DispatcherServlet使用 <url-pattern>/</url-pattern> 映射时，能映射静态资源 -->

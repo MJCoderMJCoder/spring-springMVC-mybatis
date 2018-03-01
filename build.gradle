@@ -27,6 +27,7 @@ dependencies {
       
     //当前发布的servlet API版本 providedCompile
     providedCompile 'javax.servlet:javax.servlet-api:+'
+    compile 'javax:javaee-api:+'
     //Servlet web 
     compile 'taglibs:standard:+'
     compile 'jstl:jstl:+'
@@ -38,6 +39,8 @@ dependencies {
     compile 'c3p0:c3p0:+'
     //alibaba data source 相关jar包-
     //compile 'com.alibaba:druid:+'
+    //导入dbcp的jar包，用来在applicationContext.xml中配置数据库
+    //compile 'commons-dbcp:commons-dbcp:+'
     //mybatis
     compile 'org.mybatis:mybatis:3.4.5'
     compile 'org.mybatis:mybatis-spring:+'
@@ -51,14 +54,23 @@ dependencies {
     compile 'com.dyuproject.protostuff:protostuff-runtime:+'
     
     //日志：实现slf4j接口并整合
-    compile 'ch.qos.logback:logback-classic:+'
+    //compile 'ch.qos.logback:logback-classic:+'
+    // 日志文件管理包
+    compile 'log4j:log4j:+'
+    //格式化对象，方便输出日志
+    compile 'com.alibaba:fastjson:+'
+    compile 'org.slf4j:slf4j-api:+'
+    compile 'org.slf4j:slf4j-log4j12:+'
     
     //spring-Spring核心
     compile 'org.springframework:spring-core:5.0.4.RELEASE'
     compile 'org.springframework:spring-beans:5.0.4.RELEASE'
+    //compile 'org.springframework:spring-aop:5.0.4.RELEASE'
+    //compile 'org.springframework:spring-context-support:5.0.4.RELEASE'
     compile 'org.springframework:spring-context:5.0.4.RELEASE'
     //spring-Spring DAO层
     compile 'org.springframework:spring-jdbc:5.0.4.RELEASE'
+    //compile 'org.springframework:spring-oxm:5.0.4.RELEASE'
     compile 'org.springframework:spring-tx:5.0.4.RELEASE'
     //spring-Spring web 
     compile 'org.springframework:spring-web:5.0.4.RELEASE'
@@ -66,6 +78,13 @@ dependencies {
     //spring-Spring test 
     compile 'org.springframework:spring-test:5.0.4.RELEASE'
     
+    // 映入JSON
+    compile 'org.codehaus.jackson:jackson-mapper-asl:+'
+    
+    //上传组件包
+    compile 'commons-fileupload:commons-fileupload:+'
+    compile 'commons-io:commons-io:+'
+    compile 'commons-codec:commons-codec:+'
 }
 
 // In this section you declare where to find the dependencies of your project

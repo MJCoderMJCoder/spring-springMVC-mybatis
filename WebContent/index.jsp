@@ -7,8 +7,12 @@
 <title>我就不插入标题</title>
 </head>
 <body>
-	<p>
-	<h1>这是一个段落</h1>
-	</p>
+	<form action="${pageContext.request.contextPath}/controller/sysConfigs"
+		method="post">
+		昵称：<input type="text" name="nickname" value="${nickname }"><br>
+		密码：<input type="password" name="password" value="${password }"><br>
+		<input type="submit" value="登录"><br>
+		<p style="color: red;">${errorMsg }</p>
+	</form>
 </body>
 </html>

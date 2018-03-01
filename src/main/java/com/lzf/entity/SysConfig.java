@@ -95,7 +95,8 @@ public class SysConfig {
 	 */
 	@Override
 	public String toString() {
-		return "{\"variable\":\"" + variable + "\", \"value\":\"" + value + "\", \"set_time\":\"" + set_time
-				+ "\", \"set_by\":\"" + set_by + "\"}";
+		return "SysConfig [variable=" + variable + ", value=" + value + ", set_time=" + set_time + ", set_by=" + set_by
+				+ "]";
 	}
+
 }

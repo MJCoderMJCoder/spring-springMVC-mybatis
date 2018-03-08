@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.lzf.dto.Result;
 import com.lzf.entity.SysConfig;
 import com.lzf.service.IServiceTest;
 
@@ -60,6 +61,10 @@ public class ControllerTest {
 		// return "controller";
 		// }
 		// list.jsp + model = ModelAndView
-		return sysConfigs;// WEB-INF/jsp/"list".jsp
+		if (sysConfigs != null) {
+			return (new Result(true, "已经查询完毕", sysConfigs));// WEB-INF/jsp/"list".jsp
+		} else {
+			return (new Result(false, "未查询到相关信息", null));// WEB-INF/jsp/"list".jsp
+		}
 	}
 }

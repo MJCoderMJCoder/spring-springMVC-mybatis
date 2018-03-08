@@ -49,9 +49,10 @@ dependencies {
     compile 'commons-collections:commons-collections:+'
     
     //redis客户端:Jedis 
-    compile 'redis.clients:jedis:+'
-    compile 'com.dyuproject.protostuff:protostuff-core:+'
-    compile 'com.dyuproject.protostuff:protostuff-runtime:+'
+    //compile 'redis.clients:jedis:+'
+    //compile 'com.dyuproject.protostuff:protostuff-core:+'
+    //compile 'com.dyuproject.protostuff:protostuff-runtime:+'
+    //compile 'org.springframework.data:spring-data-redis:+'
     
     //日志：实现slf4j接口并整合
     //compile 'ch.qos.logback:logback-classic:+'

@@ -50,7 +50,6 @@ public class ControllerTest {
 		System.out.println(request.getParameter("password"));
 		System.out.println(request.getAttribute("nickname")); // null。获取不到用户提交给服务端的数据
 		System.out.println(request.getAttribute("password")); // null。获取不到用户提交给服务端的数据
-		System.out.println(sysConfigs.toString());
 		// if (sysConfigs == null) {
 		// request.setAttribute("nickname", "昵称得对");
 		// request.setAttribute("password", "密码也得对");

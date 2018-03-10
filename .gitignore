@@ -1,3 +1,2 @@
 /.gradle/
-/src/main/resources/jdbc.properties
-
+/jdbc.properties
